@@ -10,7 +10,7 @@ const Formulario = () => {
     return (
 
         <form className="formulario-container">
-            <Link className="back-dashboard" to="/securityandprivacy">
+            <Link className="back-dashboard" to="/institution">
                 <FontAwesomeIcon className="back-dashboard" icon={faArrowLeft} />
             </Link>
             <img src="public/UIUX-Design.svg" alt="" className="logo-institution" />
