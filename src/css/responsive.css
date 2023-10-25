@@ -1,0 +1,303 @@
+@media (max-width: 1000px) {
+    nav {
+        width: 73px;
+    }
+
+    nav.close {
+        width: 250px;
+    }
+
+    nav .logo_name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav.close .logo_name {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav li a .link-name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav.close li a .link-name {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav~.dashboard {
+        left: 73px;
+        width: calc(100% - 73px);
+    }
+
+    nav.close~.dashboard {
+        left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    nav~.dashboard .top {
+        left: 73px;
+        width: calc(100% - 73px);
+    }
+
+    nav.close~.dashboard .top {
+        left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    .activity .activity-data {
+        overflow-X: scroll;
+    }
+}
+
+@media (max-width: 780px) {
+    .dash-content .boxes .box {
+        width: calc(100% / 2 - 15px);
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 560px) {
+    .dash-content .boxes .box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    nav {
+        width: 0px;
+    }
+
+    nav.close {
+        width: 73px;
+    }
+
+    nav .logo_name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav.close .logo_name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav li a .link-name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav.close li a .link-name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav~.dashboard {
+        left: 0;
+        width: 100%;
+    }
+
+    nav.close~.dashboard {
+        left: 73px;
+        width: calc(100% - 73px);
+    }
+
+    nav~.dashboard .top {
+        left: 0;
+        width: 100%;
+    }
+
+    nav.close~.dashboard .top {
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .wave-container {
+        overflow: hidden;
+    }
+
+    .back-wave {
+        overflow: hidden;
+    }
+
+    .mobile-wave {
+        display: block;
+        transform: rotate(180deg);
+        margin-top: -5px;
+        height: auto;
+        width: auto;
+        top: 0px !important;
+        right: 05px !important;
+        position: relative;
+    }
+
+    .form-login {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin: 100px auto;
+    }
+
+    .form-login input {
+        width: 250%;
+    }
+
+    .form-login h1 {
+        font-size: 26px;
+    }
+
+    .icon-login {
+        left: 110%;
+    }
+
+    .password-forget {
+        white-space: nowrap;
+        position: relative;
+        bottom: 50px;
+        left: 80px;
+        font-size: auto;
+        margin: 10px;
+    }
+
+    .btn-login {
+        position: relative;
+        top: 30px;
+        padding: 13px !important;
+        font-size: auto !important;
+        margin: 0 !important;
+    }
+
+    .register-btn {
+        font-size: auto;
+    }
+
+}
+
+/** Cadastro **/
+@media screen and (max-width: 768px) {
+    .wave-container-cadastro {
+        overflow: hidden;
+    }
+
+    .mobile-wave {
+        display: block !important;
+        transform: rotate(180deg);
+        margin-top: -5px;
+        height: auto;
+        width: auto;
+    }
+
+    .back-wave-cadastro {
+        overflow: hidden;
+    }
+
+    .form-cadastro {
+        padding: 0 !important;
+        margin-left: 150px;
+        height: auto;
+    }
+
+
+    .form-cadastro h1 {
+        font-size: 26px !important;
+    }
+
+    .form-cadastro i {
+        left: 150% !important;
+    }
+
+    a {
+        white-space: nowrap;
+    }
+
+    .btn-cadastro {
+        position: relative;
+        top: 30px;
+        padding: 13px !important;
+        font-size: auto !important;
+        margin: 0 !important;
+    }
+
+    .form-cadastro input:not([name="aceitoTermos"]),
+    select {
+        width: 250px !important;
+    }
+
+    #opcao1,
+    #opcao2,
+    #opcao3,
+    #opcao4,
+    #opcao5,
+    #opcao6,
+    #opcao7 {
+        margin-bottom: 10px !important;
+    }
+
+    .form-cadastro .termosTexto {
+        white-space: nowrap;
+    }
+
+    .finish-form {
+        margin-top: 0 !important;
+        width: 200px !important;
+
+    }
+
+}
+
+/* menu*/
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 16px;
+
+    }
+
+    @media screen and (max-width: 50px) {
+        body {
+            font-size: 16px;
+
+        }
+
+        .header {
+            text-align: center;
+        }
+    }
+
+
+
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
+        body {
+            font-size: 18px;
+
+        }
+
+        .header {
+            text-align: left;
+
+        }
+    }
+
+    @media screen and (min-width: 1025px) {
+        body {
+            font-size: 20px;
+
+        }
+
+
+
+        .header {
+            text-align: right;
+
+        }
+    }
+}
