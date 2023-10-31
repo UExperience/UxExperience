@@ -43,38 +43,28 @@ const MenuLateral = () => {
           <li className="nav-link">
             <a href="#" onClick={() => toggleSubMenu("academia")}>
               <FontAwesomeIcon className="icon" icon={faGraduationCap} />
-              <span className="text nav-text">ACADEMIA P&D</span>
+              <span className="text nav-text">OPORTUNIDADES NACIONAIS E INTERNACIONAIS</span>
             </a>
           </li>
           {activeMenu === "academia" && (
             <ul className="sub-menu">
               <li>
-                <a href="#">PESQUISAS E PROJETOS CONJUNTOS</a>
+                <a href="#">Divulgar oportunidades</a>
               </li>
               <li>
-                <a href="#">EDITAIS E BOLSAS</a>
+                <a href="#">Pesquisas Conjuntas</a>
               </li>
               <li>
-                <a href="#">REVISTAS ACADÊMICAS</a>
+                <a href="#">Intercâmbio docente e discente</a>
               </li>
               <li>
-                <a href="#">CURSOS VIRTUAIS</a>
-              </li>
-            </ul>
-          )}
-          <li className="nav-link">
-            <a href="#" onClick={() => toggleSubMenu("consultoria")}>
-              <FontAwesomeIcon className="icon" icon={faComments} />
-              <span className="text nav-text">CONSULTORIA</span>
-            </a>
-          </li>
-          {activeMenu === "consultoria" && (
-            <ul className="sub-menu">
-              <li>
-                <a href="#">DIAGNÓSTICO INSTITUCIONAL</a>
+                <a href="#">Eventos e Projetos nacionais e internacionais</a>
               </li>
               <li>
-                <a href="#">NETWORKING INTERNACIONAL</a>
+                <a href="#">Palestrantes internacionais</a>
+              </li>
+              <li>
+                <a href="#">Revistas Acadêmicas</a>
               </li>
             </ul>
           )}
@@ -92,48 +82,40 @@ const MenuLateral = () => {
               <li>
                 <a href="#">RELATÓRIOS E EVIDÊNCIAS INSTITUCIONAIS</a>
               </li>
+              <li>
+                <a href="#">Consultoria</a>
+              </li>
+              <li>
+                <a href="#">Diagnóstico institucional</a>
+              </li>
+              <li>
+                <a href="#">Networking internacional</a>
+              </li>
+              <li>
+                <a href="#">GEPAI</a>
+              </li>
+              <li>
+                <a href="#">Consultoria Específica</a>
+              </li>
             </ul>
           )}
           <li className="nav-link">
             <a href="#" onClick={() => toggleSubMenu("projetosInstitucionais")}>
               <FontAwesomeIcon className="icon" icon={faChartSimple} />
-              <span className="text nav-text">PROJETOS INSTITUCIONAIS</span>
+              <span className="text nav-text">CURSOS VIRTUAIS</span>
             </a>
           </li>
           {activeMenu === "projetosInstitucionais" && (
             <ul className="sub-menu">
               <li>
-                <a href="#">OPORTUNIDADES NACIONAIS E INTERNACIONAIS</a>
+                <a href="#">Cadastrar Cursos</a>
               </li>
               <li>
-                <a href="#">PALESTRANTES INTERNACIONAIS</a>
-              </li>
-              <li>
-                <a href="#">INTERCÂMBIO DISCENTE E DOCENTE</a>
-              </li>
-            </ul>
-          )}
-          <li className="nav-link">
-            <a href="#" onClick={() => toggleSubMenu("eventos")}>
-              <FontAwesomeIcon className="icon" icon={faCalendar} />
-              <span className="text nav-text">EVENTOS</span>
-            </a>
-          </li>
-          {activeMenu === "eventos" && (
-            <ul className="sub-menu">
-              <li>
-                <a href="#">U.EX INTERNATIONAL CONFERENCE</a>
-              </li>
-              <li>
-                <a href="#">INTERNATIONAL INCUBATION PROGRAM</a>
-              </li>
-              <li>
-                <a href="#">INTERNATIONAL STUDENTS SYMPOSIUM</a>
+                <a href="#">Listar Cursos</a>
               </li>
             </ul>
           )}
         </ul>
-      </div>
 
       <div className="bottom-content">
         <li className="nav-link">
@@ -149,6 +131,7 @@ const MenuLateral = () => {
           </Link>
         </li>
       </div>
+    </div>
     </div>
   );
 };

@@ -16,15 +16,15 @@ const Formulario = () => {
             <img src="public/UIUX-Design.svg" alt="" className="logo-institution" />
             <div className="grupo">
                 <div className="campo">
-                <label htmlFor="nome" title="Exemplo: ">Nome Completo *</label>
+                <label htmlFor="nome" title="Exemplo: ">Razão Social *</label>
                     <input type="text" id="nome" required />
                 </div>
                 <div className="campo">
-                    <label htmlFor="email" title="Exemplo: ">E-mail *</label>
+                    <label htmlFor="email" title="Exemplo: ">E-mail de Contato da Instituição *</label>
                     <input type="email" id="email" required />
                 </div>
                 <div className="campo">
-                    <label htmlFor="cnpj" title="Exemplo: ">CNPJ *</label>
+                    <label htmlFor="cnpj" title="Somente números">CNPJ *</label>
                     <input type="text" id="cnpj" placeholder="99.999.999/9999-99" required />
                 </div>
             </div>
@@ -32,10 +32,10 @@ const Formulario = () => {
             <div className="grupo">
                 <div className="campo">
                     <label htmlFor="telefone" title="Exemplo: ">Telefone *</label>
-                    <input type="tel" id="telefone" placeholder="(DDD) _____-____" required />
+                    <input type="tel" id="telefone" placeholder="+(DDI) (DDD) _ _ _ _ _ - _ _ _ _" required />
                 </div>
                 <div className="campo">
-                    <label htmlFor="interesse" title="Exemplo: ">Áreas de Interesse *</label>
+                    <label htmlFor="interesse" title="Exemplo: ">Áreas de Interesse para Conexão Internacional *</label>
                     <select id="interesse" required>
                         <option value="">Selecione...</option>
                         <option value="opcao1">Opção 1</option>
@@ -44,7 +44,7 @@ const Formulario = () => {
                     </select>
                 </div>
                 <div className="campo">
-                    <label htmlFor="tipo-institution" title="Exemplo: ">Tipo *</label>
+                    <label htmlFor="tipo-institution" title="Exemplo: ">Tipo de Cadastro *</label>
                     <select id="tipo-institution" required>
                         <option value="">Selecione...</option>
                         <option value="opcao1">Opção 1</option>
@@ -56,11 +56,11 @@ const Formulario = () => {
 
             <div className="grupo">
                 <div className="campo">
-                    <label htmlFor="dominio" title="Exemplo: ">Domínio *</label>
-                    <input type="text" id="dominio" required />
+                    <label htmlFor="dominio" title="@edu.uex.br">Domínio Institucional *</label>
+                    <input type="text" id="dominio" placeholder="@edu.uex.br"required />
                 </div>
                 <div className="campo3">
-                    <label htmlFor="consultoria" title="Exemplo: ">Deseja consultoria? *</label>
+                    <label htmlFor="consultoria" title="Exemplo: ">Tem interesse em contratar serviço adicional de consultoria individualizada?  *</label>
                     <div className="radio-group">
                         <label>
                         Sim <input type="radio" name="consultoria" value="sim" required /> 

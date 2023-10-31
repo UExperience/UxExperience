@@ -8,56 +8,12 @@ import {
     faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
+import NavAdmin from "../../../components/nav-admin.jsx";
 
 const SecurityandPrivacy = () => {
     return (
         <div>
-            <nav className="nav-admin">
-                <div className="logo-name">
-                    <div className="logo-image">
-                        <img src="public/UIUX-Design.svg" alt="" />
-                    </div>
-                    <span className="logo_name">U.Experience</span>
-                </div>
-                <div className="menu-items">
-                    <ul className="nav-links">
-                        <li>
-                            <Link to="/configuracoes">
-                                <FontAwesomeIcon className="admin-icon" icon={faUser} />
-                                <span className="link-name">Meu Cadastro</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/securityandprivacy">
-                                <FontAwesomeIcon className="admin-icon" icon={faShield} />
-                                <span className="link-name">Segurança e Privacidade</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/configuracoes">
-                                <FontAwesomeIcon className="admin-icon" icon={faBell} />
-                                <span className="link-name">Notificações</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/institution">
-                                <FontAwesomeIcon className="admin-icon" icon={faSquarePlus} />
-                                <span className="link-name">Instituições</span>
-                            </Link>
-                        </li>
-                    </ul>
-
-                    <ul className="logout-mode">
-                        <li>
-                            <Link to="/configuracoes">
-                                <i className="uil uil-signout"></i>
-                                <span className="link-name">Logout</span>
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+    <NavAdmin /> 
             <section className="dashboard">
                 <div className="title-content">
                     <div className="title-wrapper">

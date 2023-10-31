@@ -57,6 +57,7 @@ a:hover {
     background-color: none;
 }
 
+
 /* Waves */
 .wave-container {
     transform: rotate(90deg);
@@ -338,7 +339,9 @@ a:hover {
 }
 
 .menu-links {
+    margin-top: 50px;
     padding: 10px;
+    text-transform: uppercase;
 }
 
 .sidebar li {
@@ -449,17 +452,30 @@ a:hover {
     color: rgb(213, 213, 213);
 }
 
+
 .sidebar .menu-bar {
     padding-top: 30px;
     height: calc(100% - 55px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: calc(100% - 65px); 
+    overflow-y: auto; 
+    padding-bottom: 10px; 
 }
 
+.menu-bar::-webkit-scrollbar {
+    width: 0.4em;
+    height: 2px;
+  }
+
+  .menu-bar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+
 .bottom-content {
-    position: fixed;
-    bottom: 0px;
+    padding: 10px;
 }
 
 .sidebar .menu-links>li {
@@ -478,16 +494,17 @@ a:hover {
     justify-content: center;
     height: 40px;
     transition: var(--tran-02);
+    padding: 5px 0;
 }
 
 .sub-menu {
-    padding: 0;
+    padding-left: 10px;
 }
 
 .sub-menu li:hover {
     border-left: 7px solid #DA30FF;
     border-right: 7px solid #DA30FF;
-}
+  }
 
 
 /** Admin Style **/
@@ -918,45 +935,45 @@ nav.close li a .link-name {
     height: 20px;
     border-radius: 0;
     -webkit-appearance: none;
-    outline: none; 
-    border: 1px solid rgba(0, 0, 0, 0.311); 
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.311);
     position: relative;
     cursor: pointer;
     transition: var(--tran-02);
-  }
-  
-  .radio-group label {
+}
+
+.radio-group label {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .radio-group input[type="radio"]:checked::after {
+.radio-group input[type="radio"]:checked::after {
     content: "X";
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
     font-size: 16px;
     transition: var(--tran-02);
-  }
-  
+}
 
-  .radio-group input[type="radio"]:checked {
+
+.radio-group input[type="radio"]:checked {
     color: black;
     font-weight: 600;
     transition: var(--tran-02);
-  }
-  
+}
 
-  .radio-group label {
+
+.radio-group label {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .enviar-button {
+.enviar-button {
     margin-top: 20px;
     background-color: #1D0457;
     color: white;
@@ -967,4 +984,179 @@ nav.close li a .link-name {
     width: 15%;
     height: 50px;
     cursor: pointer;
-  }
+}
+
+/** Table **/
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 30px 0px 0px 100px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+}
+
+.table th {
+    width: 200px;
+    padding: 10px;
+    color: white;
+    background-color: #1D0457;
+
+}
+
+.table td {
+    text-align: center;
+    padding: 0px;
+    width: 20%;
+    padding: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.166);
+    color: #4E4E4E;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.table div {
+    margin-right: 20px;
+}
+
+.title-content-interest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 5%;
+}
+
+
+.new {
+    color: #0FA958;
+}
+
+.edit {
+    color: #FFD233
+}
+
+.delete {
+    color: #ff0000b3;
+}
+
+tbody div {
+    cursor: pointer;
+}
+
+
+
+.new-button {
+    margin-left: 45%;
+}
+
+.new-button button {
+    width: 80px;
+    height: 40px;
+    background-color: #1D0457;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-family: Sansation;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+/** Interest Add **/ 
+
+.addinterest-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.box-content-interest {
+    margin-top: 3%;
+}
+
+.box-interest {
+    border-radius: 10px;
+    width: 80%;
+    height: 400px;
+    position: relative;
+    margin: 10px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.box-content-interest h1 {
+    margin-left: 4%;
+    color: #2E2E2E;
+}
+
+.box-content-interest p {
+    margin-top: -10px;
+    margin-left: 4%;
+    font-size: 15px;
+    color: #4E4E4E;
+}
+
+.box-content-interest button {
+    background-color: #1D0457;
+    border: none;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 200px;
+    height: 40px;
+    color: white;
+    border-radius: 50px;
+    font-family: Sansation;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.box-content-interest button:hover {
+    background-color: #14023b;
+}
+
+.interest-campo {
+    margin-left: 4%;
+    width: 50%;
+}
+
+.interest-campo input {
+    width: 100%;
+}
+
+.logo-title {
+    font-size: 40px;
+}
+
+.title-interest {
+    font-size: 24px;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.label-container label {
+    margin-right: 120px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-container input {
+    flex: 1;
+
+}
+
+#radio {
+
+}
