@@ -995,15 +995,13 @@ nav.close li a .link-name {
     width: 80%;
     margin: 30px 0px 0px 100px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-
 }
 
 .table th {
-    width: 200px;
+    width: 150px;
     padding: 10px;
-    color: white;
     background-color: #1D0457;
-
+    color: white;
 }
 
 .table td {
@@ -1160,3 +1158,252 @@ tbody div {
 #radio {
 
 }
+
+
+
+
+  /* Content */
+  #content {
+    padding: 0 2% 0 20%;
+  }  
+  
+  /* Main */
+  #content main {
+    width: 100%;
+    padding: 36px 24px;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  
+  #content main .head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  #content main .head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  #content main .head-title .left .breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+  }
+  
+  #content main .head-title .left .breadcrumb li {
+    color: #333;
+  }
+  
+  #content main .head-title .left .breadcrumb li a {
+    color: #666;
+    pointer-events: none;
+  }
+  
+  #content main .head-title .left .breadcrumb li a.active {
+    color: #007bff;
+    pointer-events: unset;
+  }
+  
+  #content main .head-title .btn-download {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 36px;
+    background: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+  }
+  
+  #content main .box-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+    padding: 0;
+  }
+  
+  #content main .box-info li {
+    padding: 24px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  #content main .box-info li .bx {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #content main .box-info li:nth-child(1) .bx {
+    background: #cce5ff;
+    color: #007bff;
+}
+  
+  #content main .box-info li:nth-child(2) .bx {
+    background: #ffffcc;
+    color: #d5d505;
+  }
+  
+  #content main .box-info li:nth-child(3) .bx {
+    background: #ffd9b3;
+    color: #ff6600;
+  }
+  
+  #content main .box-info li .text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  #content main .box-info li .text p {
+    color: #333;
+  }
+  
+  #content main .table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: #333;
+  }
+  
+  #content main .table-data > div {
+    border-radius: 20px;
+    background: #f0f0f0;
+    padding: 24px;
+    overflow-x: auto;
+  }
+  
+  #content main .table-data .head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  #content main .table-data .head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+  
+  #content main .table-data .head .bx {
+    cursor: pointer;
+  }
+  
+  #content main .table-data .order {
+    flex-grow: 1;
+    flex-basis: 500px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  #content main .table-data .order table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #content main .table-data .order table th {
+    padding-bottom: 10px;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding-left: 10px;
+  }
+  
+  #content main .table-data .order table td {
+    padding: 16px 0;
+  }
+  
+  #content main .table-data .order table tr td:first-child {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+  }
+  
+  #content main .table-data .order table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  #content main .table-data .order table tbody tr:hover {
+    background: #ccc;
+  }
+  
+  #content main .table-data .order table tr td .status {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+  
+  #content main .table-data .order table tr td .status.completed {
+    background: #30c806;
+  }
+  
+  #content main .table-data .order table tr td .status.process {
+    background: #ffe014;
+  }
+  
+  #content main .table-data .order table tr td .status.pending {
+    background: #960303;
+  }
+  
+  #content main .table-data .todo {
+    flex-grow: 1;
+    flex-basis: 300px;
+  }
+  
+  #content main .table-data .todo .todo-list {
+    width: 100%;
+  }
+  
+  #content main .table-data .todo .todo-list li {
+    width: 100%;
+    margin-bottom: 16px;
+    background: #ccc;
+    border-radius: 10px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #content main .table-data .todo .todo-list li .bx {
+    cursor: pointer;
+  }
+  
+  #content main .table-data .todo .todo-list li.completed {
+    border-left: 10px solid #007bff;
+  }
+  
+  #content main .table-data .todo .todo-list li.not-completed {
+    border-left: 10px solid #ff6600;
+  }
+  
+  #content main .table-data .todo .todo-list li:last-child {
+    margin-bottom: 0;
+  }
+  

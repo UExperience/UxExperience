@@ -1,24 +1,111 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faBell,
-    faPencil,
-    faShield,
-    faSquare,
-    faSquarePen,
-    faSquarePlus,
-    faUser,
-  } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import NavAdmin from "../../../components/nav-admin.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar, faShop, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const User = () => {
   return (
     <div>
-    <NavAdmin /> 
-    <section className="dashboard">
-    </section>
-</div>
+      <NavAdmin />
+      <section id="content">
+        <main>
+          <div className="head-title">
+            <div className="left">
+            </div>
+            <a href="#" className="btn-download">
+              <i className="bx bxs-cloud-download"></i>
+              <span className="text">Download CSV</span>
+            </a>
+          </div>
+
+          <ul className="box-info">
+            <li>
+              <div className="bx bxs-calendar-check">
+              <FontAwesomeIcon icon={faUser}/>
+              </div>
+              <span className="text">
+                <h3>1020</h3>
+                <p>Lorem ipsum</p>
+              </span>
+            </li>
+            <li>
+            <div className="bx bxs-calendar-check">
+              <FontAwesomeIcon icon={faCalendar}/>
+              </div>
+              <span className="text">
+                <h3>2834</h3>
+                <p>Lorem ipsum.</p>
+              </span>
+            </li>
+            <li>
+            <div className="bx bxs-calendar-check">
+              <FontAwesomeIcon icon={faShop}/>
+              </div>
+              <span className="text">
+                <h3>$2543</h3>
+                <p>Lorem ipsum .</p>
+              </span>
+            </li>
+          </ul>
+
+          <div className="table-data">
+            <div className="order">
+              <div className="head">
+                <h3>Atividades Recentes</h3>
+                <i className="bx bx-search"></i>
+                <i className="bx bx-filter"></i>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome Completo</th>
+                    <th>Email</th>
+                    <th>Instituição</th>
+                    <th>CNPJ</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>
+                      <span className="status completed">Aprovado</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>
+                      <span className="status process">Pendente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>John Doe</p>
+                    </td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+                    <td>
+                      <span className="status pending">Reprovado</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
   );
 };
 
