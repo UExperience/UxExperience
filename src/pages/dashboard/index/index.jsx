@@ -1,7 +1,7 @@
 import React from "react";
 import NavAdmin from "../../../components/nav-admin.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar, faShop, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faShop, faUser, faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
 
 const User = () => {
   return (
@@ -24,26 +24,26 @@ const User = () => {
               <FontAwesomeIcon icon={faUser}/>
               </div>
               <span className="text">
-                <h3>1020</h3>
-                <p>Lorem ipsum</p>
+                <h3>000</h3>
+                <p>Total de Usuários</p>
               </span>
             </li>
             <li>
             <div className="bx bxs-calendar-check">
-              <FontAwesomeIcon icon={faCalendar}/>
+              <FontAwesomeIcon icon={faUserCheck}/>
               </div>
               <span className="text">
-                <h3>2834</h3>
-                <p>Lorem ipsum.</p>
+                <h3>000</h3>
+                <p>Usuários Ativos</p>
               </span>
             </li>
             <li>
             <div className="bx bxs-calendar-check">
-              <FontAwesomeIcon icon={faShop}/>
+              <FontAwesomeIcon icon={faUserXmark}/>
               </div>
               <span className="text">
-                <h3>$2543</h3>
-                <p>Lorem ipsum .</p>
+                <h3>000</h3>
+                <p>Usuários Inativos</p>
               </span>
             </li>
           </ul>

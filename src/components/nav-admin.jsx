@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBell,
     faBook,
+    faComputerMouse,
+    faGraduationCap,
     faShield,
     faSquare,
     faSquarePen,
@@ -56,6 +58,18 @@ const NavAdmin = () => {
                         <Link to="/academicarea">
                             <FontAwesomeIcon className="admin-icon" icon={faBook} />
                             <span className="link-name">Área Acadêmica</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/typeofcourse">
+                            <FontAwesomeIcon className="admin-icon" icon={faGraduationCap} />
+                            <span className="link-name">Tipo de Curso</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/subtype">
+                            <FontAwesomeIcon className="admin-icon" icon={faGraduationCap} />
+                            <span className="link-name">Tipo de Curso</span>
                         </Link>
                     </li>
                 </ul>

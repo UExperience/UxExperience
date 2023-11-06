@@ -4,16 +4,16 @@ import {
     faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Formulario from '../../../components/form.jsx'
+import Formulario from "../../../components/form.jsx";
 
-const AddAcademicAreaForm = () => {
+const AddCourse = () => {
     return (
         <Formulario
-        title="Nova Área Acadêmica"
-        description="Descrição da Área Acadêmica *"
+        title="Novo Tipo de Curso"
+        description="Descrição do Tipo de Curso *"
         buttonText="Salvar"
       />
     );
 };
 
-export default AddAcademicAreaForm;
+export default AddCourse;

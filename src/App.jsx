@@ -20,8 +20,13 @@ import Institution from './pages/dashboard/institution/index.jsx';
 import AddInstitution from './pages/dashboard/institution/addinstitution.jsx';
 import AreaofInterest from './pages/dashboard/area​interest/index.jsx';
 import AddInterest from './pages/dashboard/area​interest/addareainterest.jsx'
-import AcademicArea from './pages/dashboard/academicarea/index.jsx'
-import AddAcademic from './pages/dashboard/academicarea/addacademic.jsx'
+import AcademicArea from './pages/dashboard/academicarea/index.jsx';
+import AddAcademic from './pages/dashboard/academicarea/addacademic.jsx';
+import TypeofCourse from './pages/dashboard/typeofcourse/index.jsx';
+import AddCourse from './pages/dashboard/typeofcourse/addcourse.jsx';
+import SubTypeofCourse from './pages/dashboard/typeofcourse/subtype/index.jsx';
+import AddSubType from './pages/dashboard/typeofcourse/subtype/addsubtype.jsx';
+
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -76,6 +81,22 @@ const router = createBrowserRouter([
   {
     path: '/addacademic',
     element: <AddAcademic />,
+  },
+  {
+    path: '/typeofcourse',
+    element: <TypeofCourse />,
+  },
+  {
+    path: '/addcourse',
+    element: <AddCourse />,
+  },
+  {
+    path: '/subtype',
+    element: <SubTypeofCourse />,
+  },
+  {
+    path: '/addsubtype',
+    element: <AddSubType />,
   },
 ]);
 

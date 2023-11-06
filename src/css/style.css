@@ -908,9 +908,9 @@ nav.close li a .link-name {
     border: 1px solid rgba(0, 0, 0, 0.311);
     border-radius: 4px;
     width: 80%;
-    height: 100%;
+    height: 22px;
     font-size: 15px;
-    padding: 10px;
+    padding: 5px;
 }
 
 .campo select {
@@ -997,6 +997,29 @@ nav.close li a .link-name {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
+.table-container-type    {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 30px 0px 0px 100px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.table th {
+    width: 150px;
+    padding: 10px;
+    background-color: #1D0457;
+    color: white;
+}
+
+.table-type th {
+    width: 150px;
+    padding: 10px;
+    background-color: #1D0457;
+    color: white;
+}
+
 .table th {
     width: 150px;
     padding: 10px;
@@ -1015,8 +1038,24 @@ nav.close li a .link-name {
     font-weight: bold;
 }
 
+.table-type td {
+    text-align: center;
+    padding: 0px;
+    width: 15.3%;
+    padding: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.166);
+    color: #4E4E4E;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .table div {
     margin-right: 20px;
+}
+
+.table-type div {
+    margin-right: 20px;
+
 }
 
 .title-content-interest {
@@ -1152,15 +1191,46 @@ tbody div {
 
 .input-container input {
     flex: 1;
-
 }
 
-#radio {
+.campo-type {
+    margin-left: 4%;
+    width: 90%;
+}
 
+.campo-type input {
+    width: 0px !important;
+}
+
+.label-container-type {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
 
 
+.input-container-type {
+    display: flex;
+    justify-content: space-between;
+    width: 86%;
+}
+
+.input-container-type input {
+    flex: 1;
+    margin-right: 3%;
+}
+
+.input-container-type select {
+    flex: 1;
+    margin-right: 3%;
+    padding: 7px;
+}
+
+.ativo {
+    position: relative;
+    right: 8%;
+}
 
   /* Content */
   #content {
@@ -1257,13 +1327,13 @@ tbody div {
 }
   
   #content main .box-info li:nth-child(2) .bx {
-    background: #ffffcc;
-    color: #d5d505;
+    background: #9ff497;
+    color: #0fd505;
   }
   
   #content main .box-info li:nth-child(3) .bx {
-    background: #ffd9b3;
-    color: #ff6600;
+    background: #ffb3b3;
+    color: #ff0000;
   }
   
   #content main .box-info li .text h3 {
