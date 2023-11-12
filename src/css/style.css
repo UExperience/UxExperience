@@ -555,7 +555,6 @@ nav.close .logo_name {
 }
 
 nav .menu-items {
-    margin-top: 40px;
     height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
@@ -613,8 +612,10 @@ nav.close li a .link-name {
 }
 
 .nav-links {
+    padding-top: 10px;
     padding-left: 10px;
-
+    overflow-y: auto;
+    transition: var(--tran-03);
 }
 
 .nav-links li {
@@ -628,6 +629,8 @@ nav.close li a .link-name {
 
 .menu-items .logout-mode {
     padding-top: 10px;
+    padding-left: 0px;
+    margin-left: 30%;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1090,6 +1093,7 @@ tbody div {
 }
 
 .new-button button {
+    margin-right: 20px;
     width: 80px;
     height: 40px;
     background-color: #1D0457;

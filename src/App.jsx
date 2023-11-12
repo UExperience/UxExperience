@@ -26,6 +26,17 @@ import TypeofCourse from './pages/dashboard/typeofcourse/index.jsx';
 import AddCourse from './pages/dashboard/typeofcourse/addcourse.jsx';
 import SubTypeofCourse from './pages/dashboard/typeofcourse/subtype/index.jsx';
 import AddSubType from './pages/dashboard/typeofcourse/subtype/addsubtype.jsx';
+import Events from './pages/dashboard/eventsadmin/index.jsx';
+import AddEvents from './pages/dashboard/eventsadmin/addevents.jsx';
+import TypeEvents from './pages/dashboard/eventsadmin/typeevents/typevents.jsx';
+import AddTypeEvents from './pages/dashboard/eventsadmin/typeevents/addtypeevents.jsx';
+import Agend from './pages/dashboard/agend/index.jsx';
+import AddAgend from './pages/dashboard/agend/addagend.jsx';
+import TypeAgend from './pages/dashboard/agend/typeagend/index.jsx';
+import AddTypeAgend from './pages/dashboard/agend/typeagend/addtype.jsx';
+import Project from './pages/dashboard/typeproject/index.jsx';
+import AddProject from './pages/dashboard/typeproject/addproject.jsx';
+
 
 import reportWebVitals from './reportWebVitals';
 
@@ -97,6 +108,46 @@ const router = createBrowserRouter([
   {
     path: '/addsubtype',
     element: <AddSubType />,
+  },
+  {
+    path: '/events',
+    element: <Events />,
+  },
+  {
+    path: '/addevents',
+    element: <AddEvents />,
+  },
+  {
+    path: '/typeevents',
+    element: <TypeEvents />,
+  },
+  {
+    path: '/addtypeevents',
+    element: <AddTypeEvents />,
+  },
+  {
+    path: '/agend',
+    element: <Agend />,
+  },
+  {
+    path: '/addagend',
+    element: <AddAgend />,
+  },
+  {
+    path: '/typeagend',
+    element: <TypeAgend />,
+  },
+  {
+    path: '/addtypeagend',
+    element: <AddTypeAgend />,
+  },
+  {
+    path: '/project',
+    element: <Project />,
+  },
+  {
+    path: '/addproject',
+    element: <AddProject />,
   },
 ]);
 

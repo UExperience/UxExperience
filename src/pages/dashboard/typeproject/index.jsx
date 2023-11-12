@@ -22,11 +22,10 @@ const AreaofInterest = () => {
             <section className="dashboard">
                 <div className="title-content-interest">
                     <div className="title-wrapper">
-                        <span className="title-security">Tipo de Curso</span>
+                        <span className="title-security">Tipo de Projeto</span>
                     </div>
                     <div className="new-button">
-                    <Link to="/addcourse"><button>Novo</button></Link>
-                    <Link to="/subtype"><button>Subtipo</button></Link>
+                    <Link to="/addproject"><button>Novo</button></Link>
                     </div>
                 </div>
                 <Table data={data} /> 

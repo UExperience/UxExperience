@@ -9,12 +9,12 @@ import Formulario from "../../../components/form.jsx";
 const AddCourse = () => {
     return (
         <div>
-      <Link className="back-dashboard" to="/typeofcourse">
+      <Link className="back-dashboard" to="/agend">
         <FontAwesomeIcon className="back-dashboard" icon={faArrowLeft} />
       </Link>
         <Formulario
-        title="Novo Tipo de Curso"
-        description="Descrição do Tipo de Curso *"
+        title="Nova Agenda"
+        description="Descrição da Agenda *"
         buttonText="Salvar"
         />
       

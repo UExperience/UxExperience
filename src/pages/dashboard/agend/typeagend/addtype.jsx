@@ -8,16 +8,16 @@ import FormSub from '../../../../components/formsub.jsx';
 
 const AddCourse = () => {
   const options = [
-    { id: "opcao1",  value: "Teste", label: "Evento *", example: "Exemplo 1"},
-    { id: "opcao2",  value: "Teste", label: "Descrição do Subtipo de Curso", example: "Exemplo 2" },
+    { id: "opcao1",  value: "Teste", label: "Agenda *", example: "Exemplo 1"},
+    { id: "opcao2",  value: "Teste", label: "Descrição do Tipo de Agenda", example: "Exemplo 2" },
     
   ];
     return (
         <div>
-        <Link className="back-dashboard" to="/subtype">
+        <Link className="back-dashboard" to="/typeagend">
           <FontAwesomeIcon className="back-dashboard" icon={faArrowLeft} />
         </Link>
-        <FormSub title="Novo Subtipo de Curso" options={options} buttonText="Salvar" />
+        <FormSub title="Novo Tipo de Agenda" options={options} buttonText="Salvar" />
        </div>
     );
 };

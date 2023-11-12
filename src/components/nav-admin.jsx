@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBell,
     faBook,
+    faCalendar,
     faComputerMouse,
+    faEquals,
     faGraduationCap,
+    faLightbulb,
     faShield,
     faSquare,
     faSquarePen,
@@ -43,12 +46,6 @@ const NavAdmin = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/institution">
-                            <FontAwesomeIcon className="admin-icon" icon={faSquarePlus} />
-                            <span className="link-name">Instituições</span>
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/areaofinterest">
                             <FontAwesomeIcon className="admin-icon" icon={faSquarePen} />
                             <span className="link-name">Áreas de Interesses</span>
@@ -61,13 +58,31 @@ const NavAdmin = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/typeofcourse">
-                            <FontAwesomeIcon className="admin-icon" icon={faGraduationCap} />
-                            <span className="link-name">Tipo de Curso</span>
+                        <Link to="/agend">
+                            <FontAwesomeIcon className="admin-icon" icon={faCalendar} />
+                            <span className="link-name">Agenda</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/subtype">
+                        <Link to="/events">
+                            <FontAwesomeIcon className="admin-icon" icon={faEquals} />
+                            <span className="link-name">Eventos</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/institution">
+                            <FontAwesomeIcon className="admin-icon" icon={faSquarePlus} />
+                            <span className="link-name">Instituições</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/project">
+                            <FontAwesomeIcon className="admin-icon" icon={faLightbulb} />
+                            <span className="link-name">Projetos</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/typeofcourse">
                             <FontAwesomeIcon className="admin-icon" icon={faGraduationCap} />
                             <span className="link-name">Tipo de Curso</span>
                         </Link>

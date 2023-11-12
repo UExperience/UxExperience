@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 const Formulario = ({ title, description, buttonText }) => {
   return (
     <div className="addinterest-container">
-      <Link className="back-dashboard" to="/areaofinterest">
-        <FontAwesomeIcon className="back-dashboard" icon={faArrowLeft} />
-      </Link>
       <div className="box-interest">
         <div className="box-content-interest">
           <h1 className="logo-title">Logo</h1>

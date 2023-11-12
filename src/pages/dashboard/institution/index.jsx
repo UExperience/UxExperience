@@ -18,9 +18,9 @@ const Institution = () => {
             <section className="dashboard">
                 <div className="title-content">
                     <div className="title-wrapper">
-                        <span className="title-security">Segurança e Privacidade</span>
+                        <span className="title-security">Instituição de Ensino</span>
                         <div className="sub-title">
-                            <span>Aumente o controle e a segurança da sua conta</span>
+                            <span>Adicione, edite ou exclua instituições de ensinos</span>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const Institution = () => {
                     </div>
                     <div className="box">
                         <div className="box-content">
-                            <h1 className="title-second">Adicionar Instituição de Ensino</h1>
+                            <h1 className="title-second">Editar Instituição de Ensino</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <Link to="#"> <button> Editar Instituição </button> </Link>
