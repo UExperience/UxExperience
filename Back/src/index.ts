@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { PrismaClient } from '@prisma/client';
 import areaInteresseRoutes from './routes/areaInteresseRoutes';
 import areaAcademicaRoutes from './routes/areaAcademicaRoutes';
+import usuariosRoutes from './routes/usuariosRoutes';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,7 +13,8 @@ app.use(bodyParser.json());
 
 app.use([
     areaInteresseRoutes,
-    areaAcademicaRoutes
+    areaAcademicaRoutes,
+    usuariosRoutes
 ]);
 
 

@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 router.post('/areas-interesse', async (req, res) => {
   try {
     const { descricao, ativo } = req.body;
-    
+
     const areaInteresse = await prisma.areaInteresse.create({
       data: {
         descricao,
