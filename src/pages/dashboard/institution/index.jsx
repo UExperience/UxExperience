@@ -15,7 +15,7 @@ const Institution = () => {
     return (
         <div>
     <NavAdmin /> 
-            <section className="dashboard">
+            <section className="dashboard responsive-dashboard">
                 <div className="title-content">
                     <div className="title-wrapper">
                         <span className="title-security">Instituição de Ensino</span>

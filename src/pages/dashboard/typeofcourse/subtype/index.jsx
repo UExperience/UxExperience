@@ -20,7 +20,7 @@ const AreaofInterest = () => {
     return (
         <div>
             <NavAdmin />
-            <section className="dashboard">
+            <section className="dashboard responsive-dashboard">
                 <div className="title-content-interest">
                     <div className="title-wrapper">
                         <span className="title-security">Subtipo de Curso</span>

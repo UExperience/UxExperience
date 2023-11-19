@@ -52,15 +52,12 @@ const User = () => {
             <div className="order">
               <div className="head">
                 <h3>Atividades Recentes</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
               </div>
               <table>
                 <thead>
                   <tr>
                     <th>Nome Completo</th>
                     <th>Email</th>
-                    <th>Instituição</th>
                     <th>CNPJ</th>
                     <th>Status</th>
                   </tr>
@@ -68,33 +65,30 @@ const User = () => {
                 <tbody>
                   <tr>
                     <td>
-                      <p>John Doe</p>
+                      <p>Marcelo Silva</p>
                     </td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
+                    <td>teste@gmail.com</td>
+                    <td>123.123.123.12</td>
                     <td>
                       <span className="status completed">Aprovado</span>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <p>John Doe</p>
+                      <p>Matheus Andrell</p>
                     </td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
+                    <td>teste@gmail.com</td>
+                    <td>123.123.123.12</td>
                     <td>
                       <span className="status process">Pendente</span>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <p>John Doe</p>
+                      <p>Alexandra Costa</p>
                     </td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
-                    <td>01-10-2021</td>
+                    <td>teste@gmail.com</td>
+                    <td>123.123.123.12</td>
                     <td>
                       <span className="status pending">Reprovado</span>
                     </td>

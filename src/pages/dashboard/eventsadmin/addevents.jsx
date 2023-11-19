@@ -9,7 +9,7 @@ import Formulario from "../../../components/form.jsx";
 const AddCourse = () => {
     return (
         <div>
-      <Link className="back-dashboard" to="/typeofcourse">
+      <Link className="back-dashboard" to="/events">
         <FontAwesomeIcon className="back-dashboard" icon={faArrowLeft} />
       </Link>
         <Formulario

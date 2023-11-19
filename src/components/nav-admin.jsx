@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBell,
@@ -9,6 +9,7 @@ import {
     faGraduationCap,
     faLightbulb,
     faShield,
+    faSignOut,
     faSquare,
     faSquarePen,
     faSquarePlus,
@@ -17,13 +18,18 @@ import {
 import { Link } from "react-router-dom";
 
 const NavAdmin = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        <nav className="nav-admin">
-            <div className="logo-name">
+        <nav className={`nav-admin ${isMenuOpen ? "open" : "close"}`}>
+            <div className="logo-name" onClick={toggleMenu}>
                 <div className="logo-image">
                     <img src="public/UIUX-Design.svg" alt="" />
                 </div>
-                <span className="logo_name">U.Experience</span>
             </div>
             <div className="menu-items">
                 <ul className="nav-links">
@@ -92,7 +98,7 @@ const NavAdmin = () => {
                 <ul className="logout-mode">
                     <li>
                         <Link to="/">
-                            <i className="uil uil-signout"></i>
+                            <FontAwesomeIcon className="admin-icon" icon={faSignOut}/>
                             <span className="link-name">Logout</span>
                         </Link>
                     </li>

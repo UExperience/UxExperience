@@ -20,7 +20,7 @@ const AreaofInterest = () => {
     return (
         <div>
             <NavAdmin />
-            <section className="dashboard">
+            <section className="dashboard responsive-dashboard">
                 <div className="title-content-interest">
                     <div className="title-wrapper">
                         <span className="title-security">Tipo de Evento</span>
@@ -34,7 +34,7 @@ const AreaofInterest = () => {
                         <thead className="table-head">
                             <tr>
                                 <th>ID</th>
-                                <th>Curso</th>
+                                <th>Evento</th>
                                 <th>Descrição</th>
                                 <th>Ativo</th>
                                 <th>Criado em</th>

@@ -19,13 +19,13 @@ const AreaofInterest = () => {
     return (
         <div>
             <NavAdmin />
-            <section className="dashboard">
+            <section className="dashboard responsive-dashboard">
                 <div className="title-content-interest">
                     <div className="title-wrapper">
                         <span className="title-security">Eventos</span>
                     </div>
                     <div className="new-button">
-                    <Link to="/addcourse"><button>Novo</button></Link>
+                    <Link to="/addevents"><button>Novo</button></Link>
                     <Link to="/typeevents"><button>Tipos</button></Link>
                     </div>
                 </div>
