@@ -1,24 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { PrismaClient } from '@prisma/client';
-import areaInteresseRoutes from './routes/areaInteresseRoutes';
-import areaAcademicaRoutes from './routes/areaAcademicaRoutes';
-import usuariosRoutes from './routes/usuariosRoutes';
 
-const app = express();
-const port = process.env.PORT || 3000;
+import { PrismaClient } from '@prisma/client';
+import { server } from './server/Server'
+
+
+const port = process.env.PORT || 3003;
 const prisma = new PrismaClient();
 
-app.use(bodyParser.json());
-
-app.use([
-    areaInteresseRoutes,
-    areaAcademicaRoutes,
-    usuariosRoutes
-]);
-
-
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Servidor está ouvindo na porta ${port}`);
   });
 
