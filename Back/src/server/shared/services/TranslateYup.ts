@@ -19,7 +19,6 @@ setLocale({
         length: 'Deve ter exatamente ${length} caracteres',
         uuid: 'Valor digitado não confere a um UUID válido',
         trim: 'Não deve conter espas no início ou no fim',
-        matches: 'O valor deve corresponder ao padrão: ${regex}',
     },
     number:{
         min: 'Deve ter no mínimo ${min}',
@@ -41,5 +40,6 @@ setLocale({
     },
     object: {
         noUnknown: 'Deve ser algo definido'
-    }
+    },
+
 })

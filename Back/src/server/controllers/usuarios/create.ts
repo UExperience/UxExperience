@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { Request, RequestHandler, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from "../../shared/middlewares/Validation";
@@ -38,11 +38,13 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
     senha: yup.string()
         .required()
         .min(8)
-        .matches(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/),
+        .matches(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/,
+        '${path} deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial',),
     instituicaoParceira: yup.string().required(),
     telefone: yup.string()
         .required()
-        .matches(/^\(\d{2}\) \d-\d{4}-\d{4}$/),
+        .matches(/^\(\d{3}\) \d{5}-\d{4}$/,
+        '${path} deve seguir o formato (DDD) XXXXX-XXXX'),
     areaAcademica: yup.string().required(),
     cargo: yup.string()
         .required()
@@ -50,7 +52,8 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
         .strict(true),
     linkCurriculo: yup.string().required()
         .url('Formato de URL inválido')
-        .matches(/^(http:\/\/lattes.cnpq.br\/|https:\/\/orcid.org\/)/),
+        .matches(/^(https?:\/\/(?:lattes\.cnpq\.br|orcid\.org)\/[\d-]+)$/i,
+        'A url deve ser do lattes ou do orcid'),
 
     atividadesDeInteresse: yup.array().of(
         yup.string().oneOf([
@@ -69,15 +72,13 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
             // Adicionar outras opções de revisor conforme necessário
         ])
     ),
-    data: yup.string().required().matches(/^\d{4}-\d{2}-\d{2}$/),
-    hora: yup.string().required().matches(/^([01]\d|2[0-3]):([0-5]\d)$/),
+    data: yup.string(),
+    hora: yup.string(),
     aprovacao: yup.boolean().required(),
     ativo: yup.boolean().required(),
 });
- 
-//export const createBodyValidation = validation({
-body: bodyValidation
-//});
+
+
 export const createValidation = validation((getSchema) => ({
     body: getSchema<IUsuario>(bodyValidation),
 }));
@@ -85,9 +86,22 @@ export const createValidation = validation((getSchema) => ({
 export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
     if (await isEmailUnique(req.body.email)) {
         try {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0'); // Obtém o dia com zero à esquerda se necessário
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Obtém o mês com zero à esquerda se necessário
+            const year = now.getFullYear(); // Obtém o ano no formato YYYY
+
+            const formattedDate = `${day}/${month}/${year}`;
+
+            const userData: Prisma.UsuarioCreateInput = {
+                ...req.body,
+                data: formattedDate, // Obtém a data no formato 'YYYY-MM-DD'
+                hora: now.toTimeString().split(' ')[0], // Obtém a hora no formato 'HH:MM:SS'
+            };
+
             await prisma.usuario.create({
-                data: req.body,
-            });
+                data: userData,
+            })
             console.log(req.body);
             return res.send('Create!');
         } catch (error) {
@@ -95,7 +109,12 @@ export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
             return res.status(500).send('Error creating user');
         }
     } else {
-        return res.status(400).send("Email já em uso");
+        return res.status(400).json({
+            errors: {
+                body: {
+                    email: 'E-mail já em uso'
+                }
+            }
+        });
     }
-
 };

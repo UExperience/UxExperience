@@ -29,7 +29,7 @@ model Usuario {
   data                 String
   hora                 String
   areaAcademica        String
-  atividadesDeInteresse  String[] @default([]) 
+  atividadesDeInteresse  String[] @default([])
           // Adicionado o relacionamento com a área acadêmica
             // Adicionado o relacionamento com a área de interesse
 }
