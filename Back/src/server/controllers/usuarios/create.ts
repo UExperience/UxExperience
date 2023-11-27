@@ -3,6 +3,7 @@ import { Request, RequestHandler, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from "../../shared/middlewares/Validation";
 import isEmailUnique from "../../shared/services/isEmailUnique";
+import bcrypt from 'bcrypt'
 const prisma = new PrismaClient();
 
 interface IUsuario {
@@ -83,7 +84,11 @@ export const createValidation = validation((getSchema) => ({
     body: getSchema<IUsuario>(bodyValidation),
 }));
 
+
 export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
+    
+    const hashedSenha = await bcrypt.hash(req.body.senha, 8); //Fazendo a criptografia da senha
+
     if (await isEmailUnique(req.body.email)) {
         try {
             const now = new Date();
@@ -97,13 +102,14 @@ export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
                 ...req.body,
                 data: formattedDate, // Obtém a data no formato 'YYYY-MM-DD'
                 hora: now.toTimeString().split(' ')[0], // Obtém a hora no formato 'HH:MM:SS'
+                senha: hashedSenha, //Armazenando a senha criptografa
             };
 
             await prisma.usuario.create({
                 data: userData,
             })
             console.log(req.body);
-            return res.send('Create!');
+            return res.status(201).send('Create!');
         } catch (error) {
             console.error(error);
             return res.status(500).send('Error creating user');
