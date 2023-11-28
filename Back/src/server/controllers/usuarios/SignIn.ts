@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from "../../shared/middlewares/Validation";
+import { JWTService, PasswordCrypto } from '../../shared/services';
 
 
 const prisma = new PrismaClient();
@@ -9,7 +10,7 @@ const prisma = new PrismaClient();
 interface IBodyProps {
     senha: string;
     email: string;
-}
+};
 
 export const singInValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(yup.object().shape({
@@ -32,13 +33,20 @@ export const singIn = async (req: Request<{}, {}, IBodyProps>, res: Response) =>
         });
 
         if (!usuario) {
-            return res.status(404).json({ errors:  'Email ou senha inválidos'  });
+            return res.status(404).json({ errors: {default:  'Email ou senha inválidos'}  });
         };
 
-        if (usuario.senha !== senha) {
-            return res.status(404).json({ errors:  'Email ou senha inválidos'  });
+        const passwordMatch = PasswordCrypto.verifyPassword(senha, usuario.senha)
+
+        if (!passwordMatch) {
+            return res.status(404).json({ errors:{ default:  'Email ou senha inválidos'}  });
         } else {
-            return res.status(200).json({ acesssToken: 'teste.teste.teste' });
+                const acessToken = JWTService.sign({uid: usuario.id});
+                if(acessToken === 'JWT_SECRET_NOT_FOUND'){
+                    return res.status(500).json({ errors:  {default: 'Erro ao gerar token de acesso'}  });
+                }
+
+            return res.status(200).json({ acessToken: acessToken });
         }
     } catch (error) {
         console.error("Error fetching user:", error);

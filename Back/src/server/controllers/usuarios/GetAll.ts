@@ -21,6 +21,8 @@ export const getAllValidation = validation((getSchema) => ({
 }));
 
 export const getAll = async (req: Request<{}, {}, {},IQueryProps>, res: Response) => {
+
+    console.log('idUsuario', req.headers.idUsuario);
     try {
         const usuarios = await prisma.usuario.findMany();
         return res.json(usuarios);

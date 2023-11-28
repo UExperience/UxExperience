@@ -15,18 +15,11 @@ type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
 
 export const validation: TValidation = (getAllSchemas) => async (req, res, next) => {
   const schemas = getAllSchemas((schema) => schema);
-  console.log(schemas);
-
-
   const errorsResult: Record<string, Record<string, string>> = {};
   Object.entries(schemas).forEach(([key, schema]) => {
-    console.log(`Validating ${key} schema`);
-
     try {
       schema.validateSync(req[key as TProperty], { abortEarly: false });
     } catch (err) {
-      console.error(`Error validating ${key} schema:`, err);
-
       const yupError = err as ValidationError;
       const errors: Record<string, string> = {};
 
