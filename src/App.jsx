@@ -9,7 +9,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Home from './pages/menu/index.jsx';
+import Home from './pages/index/index.jsx';
 import User from './pages/dashboard/index/index.jsx';
 import Login from './pages/login/index.jsx';
 import Cadastro2 from './pages/cadastro/cadastro2.jsx';
@@ -36,7 +36,9 @@ import TypeAgend from './pages/dashboard/agend/typeagend/index.jsx';
 import AddTypeAgend from './pages/dashboard/agend/typeagend/addtype.jsx';
 import Project from './pages/dashboard/typeproject/index.jsx';
 import AddProject from './pages/dashboard/typeproject/addproject.jsx';
-
+import RevistasAcademicas from './pages/revistasacademicas/index.jsx';
+import NewRevistasAcademicas from './pages/revistasacademicas/newrevistas.jsx';
+import AgendUser from './pages/agenduser/index.jsx';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -148,6 +150,18 @@ const router = createBrowserRouter([
   {
     path: '/addproject',
     element: <AddProject />,
+  },
+  {
+    path: '/revistasacademicas',
+    element: <RevistasAcademicas />,
+  },
+  {
+    path: '/newrevistasacademicas',
+    element: <NewRevistasAcademicas />,
+  },
+  {
+    path: '/agenduser',
+    element: <AgendUser />,
   },
 ]);
 

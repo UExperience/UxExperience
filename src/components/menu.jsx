@@ -64,7 +64,9 @@ const MenuLateral = () => {
                 <a href="#">Palestrantes internacionais</a>
               </li>
               <li>
-                <a href="#">Revistas Acadêmicas</a>
+                <Link to="/revistasacademicas">
+                Revistas Acadêmicas
+                </Link>
               </li>
             </ul>
           )}
