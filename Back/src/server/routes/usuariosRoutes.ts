@@ -5,6 +5,8 @@ import { ensureAuthenticated } from '../shared/middlewares';
 
 const router = Router();
 
+router.post('/esqueceu',usuariosControler.forgotPassWordValidation,usuariosControler.forgotPassWord)
+
 
 router.post('/cadastrar',usuariosControler.createValidation,usuariosControler.create)
 router.post('/entrar',usuariosControler.singInValidation,usuariosControler.singIn)

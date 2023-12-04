@@ -3,6 +3,9 @@ import * as jwt from 'jsonwebtoken';
 
 interface IJwtData {
   uid: number;
+  passwordResetExpires?: string;
+  passwordResetToken?: string;
+
 }
 
 const sign = (data: IJwtData): string | 'JWT_SECRET_NOT_FOUND' => {
@@ -10,6 +13,12 @@ const sign = (data: IJwtData): string | 'JWT_SECRET_NOT_FOUND' => {
 
   return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '24h' });
 };
+
+const recovery = (data: IJwtData): string | 'JWT_SECRET_NOT_FOUND' => {
+    if (!process.env.JWT_SECRET) return 'JWT_SECRET_NOT_FOUND';
+
+    return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '1h' });
+  };
 
 const verify = (token: string): IJwtData | 'JWT_SECRET_NOT_FOUND' | 'INVALID_TOKEN' => {
   if (!process.env.JWT_SECRET) return 'JWT_SECRET_NOT_FOUND';
@@ -29,4 +38,5 @@ const verify = (token: string): IJwtData | 'JWT_SECRET_NOT_FOUND' | 'INVALID_TOK
 export const JWTService = {
   sign,
   verify,
+  recovery
 };
