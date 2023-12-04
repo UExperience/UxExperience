@@ -5,6 +5,7 @@ const router = Router();
 const prisma = new PrismaClient();
 
 router.post('/areas-interesse', async (req, res) => {
+  console.log('Recebendo requisição POST em /areas-interesse');
   try {
     const { descricao, ativo } = req.body;
 

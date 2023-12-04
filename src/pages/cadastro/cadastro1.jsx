@@ -25,7 +25,7 @@ function Cadastro1() {
         <input type="text" id="opcao5" name="Lattes" placeholder="Insira seu nome completo..." required /> <FontAwesomeIcon class="icon-register" icon={faUserAlt}/>
         <input type="email" id="opcao5" name="Lattes" placeholder="Insira seu email..." required /> <FontAwesomeIcon class="icon-register" icon={faEnvelope}/>
         <input type="tel" id="opcao5" name="Lattes" placeholder="Insira seu telefone..." required /> <FontAwesomeIcon class="icon-register" icon={faPhone}/>
-        <select id="opcao2" name="Instituicao" required>
+        <select id="opcao2" name="Instituic ao" required>
             <option value="" selected disabled>Selecione a Instituição Parceira...</option>
             <option value="opcao1">Opção 1</option>
             <option value="opcao2">Opção 2</option>

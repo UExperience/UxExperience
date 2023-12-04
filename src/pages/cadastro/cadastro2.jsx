@@ -52,7 +52,7 @@ function Cadastro2() {
             <option value="opcao3">White Label</option>
         </select>
 
-        <input type="url" id="opcao5" name="Lattes" placeholder="Insira seu Lattes...    (Exemplo: http://lattes.cnpq.br/seuperfil)" required />
+        <textarea type="url" id="opcao5" name="Lattes" placeholder="Insira seu Lattes... (Exemplo: http://lattes.cnpq.br/seuperfil)" required />
 
         <select id="opcao6" name="Revisor">
             <option value="" selected disabled>Revisor (Opcional)</option>
@@ -69,7 +69,7 @@ function Cadastro2() {
             <option value="opcao3">Opção 3</option>
         </select>  
 
-        <label className="termosTexto"><input type="checkbox" className="aceitoTermos" name="aceitoTermos" required /> Aceito os Termos de Uso </label>
+        <label className="termosTexto"><input type="checkbox" id="aceitoTermos" name="aceitoTermos" required /> Aceito os Termos de Uso </label>
 
         <Link to="/sucess"><button className="finish-form">Finalizar</button></Link>
     </form>

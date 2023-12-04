@@ -203,10 +203,50 @@ a:hover {
     width: 33%;
 }
 
-.form-cadastro input:not([name="aceitoTermos"]) select {
-    margin: 0px 0;
-    padding: 16px;
+.form-cadastro form input {
+    margin: 5px 0;
+    padding: 12px;
     width: 100%;
+    border: none;
+    background-color: #E2E2E2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 7px 13px -3px rgba(0, 0, 0, 0.3), 0 -3px 0 inset rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Sansation', sans-serif;
+}
+
+.form-cadastro form select {
+    margin: 5px 0;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    background-color: #E2E2E2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 7px 13px -3px rgba(0, 0, 0, 0.3), 0 -3px 0 inset rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Sansation', sans-serif;
+    color: #4c4c4c;
+}
+
+.form-cadastro form textarea {
+    margin: 5px 0;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    background-color: #E2E2E2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 7px 13px -3px rgba(0, 0, 0, 0.3), 0 -3px 0 inset rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Sansation', sans-serif;
+    color: #4c4c4c;
+}
+
+#aceitoTermos {
+    width: 7%;
+    margin: 0px 0;
     border: none;
     background-color: #E2E2E2;
     border-radius: 5px;
@@ -316,6 +356,8 @@ a:hover {
 #icon-senha {
     cursor: pointer;
 }
+
+
 
 /* Sidebar */
 .sidebar {
@@ -947,7 +989,18 @@ nav.close li a .link-name {
     padding: 5px;
 }
 
+.campo select {
+    border: 1px solid rgba(0, 0, 0, 0.311);
+    border-radius: 4px;
+    width: 82.8%;
+    height: 33px;
+    font-size: 15px;
+    padding: 5px;
+}
 
+#paginas {
+    width: 26.9%;
+}
 
 .enviar-button {
     margin-top: 20px;
@@ -1211,8 +1264,6 @@ tbody div {
     justify-content: space-between;
     width: 80%;
 }
-
-
 
 .input-container-type {
     display: flex;

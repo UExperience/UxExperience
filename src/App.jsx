@@ -39,6 +39,8 @@ import AddProject from './pages/dashboard/typeproject/addproject.jsx';
 import RevistasAcademicas from './pages/revistasacademicas/index.jsx';
 import NewRevistasAcademicas from './pages/revistasacademicas/newrevistas.jsx';
 import AgendUser from './pages/agenduser/index.jsx';
+import NewCurso from './pages/cursos/newcursos.jsx';
+import ListCurso from './pages/cursos/listcursos.jsx';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -162,6 +164,14 @@ const router = createBrowserRouter([
   {
     path: '/agenduser',
     element: <AgendUser />,
+  },
+  {
+    path: '/NewCurso',
+    element: <NewCurso />,
+  },
+  {
+    path: '/listcurso',
+    element: <ListCurso />,
   },
 ]);
 

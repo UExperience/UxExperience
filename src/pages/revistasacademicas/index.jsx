@@ -17,7 +17,7 @@ const Table = () => {
         <section className="dashboard-revista responsive-dashboard">
             <div className="title-content-interest">
                 <div className="title-wrapper">
-                    <span className="title-security">Área de Interesse</span>
+                    <span className="title-security">Revistas Acadêmicas</span>
                 </div>
                 <div className="new-button">
                     <Link to="/newrevistasacademicas"><button>Novo</button></Link>

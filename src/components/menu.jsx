@@ -110,10 +110,10 @@ const MenuLateral = () => {
           {activeMenu === "projetosInstitucionais" && (
             <ul className="sub-menu">
               <li>
-                <a href="#">Cadastrar Cursos</a>
+                <Link to="/newcurso">Cadastrar Cursos</Link>
               </li>
               <li>
-                <a href="#">Listar Cursos</a>
+                <Link to="/listcurso">Listar Cursos</Link>
               </li>
             </ul>
           )}
