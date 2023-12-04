@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Prisma, PrismaClient } from '@prisma/client';
 import { Request, RequestHandler, Response } from 'express';
 import * as yup from 'yup';
-import { validation } from "../../shared/middlewares/Validation";
-import isEmailUnique from "../../shared/services/isEmailUnique";
+import { validation } from '../../shared/middlewares/Validation';
+import isEmailUnique from '../../shared/services/isEmailUnique';
 import { PasswordCrypto } from '../../shared/services';
 const prisma = new PrismaClient();
 
@@ -13,6 +15,7 @@ interface IUsuario {
     perfilDeAcesso: string;
     tipo: string;
     senha: string;
+    confirmacaoDeSenha?: string;
     instituicaoParceira: string;
     telefone: string;
     areaAcademica: string;
@@ -20,8 +23,7 @@ interface IUsuario {
     linkCurriculo: string;
     atividadesDeInteresse?: string[];
     revisor?: string[];
-    data: string;
-    hora: string;
+    data_hora: string;
     aprovacao: boolean;
     ativo: boolean;
 }
@@ -40,12 +42,14 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
         .required()
         .min(8)
         .matches(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]+$/,
-        '${path} deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial',),
+            '${path} deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial',),
+    confirmacaoDeSenha: yup.string().required()
+        .oneOf([yup.ref('senha'), null], 'senhas não são iguais'),
     instituicaoParceira: yup.string().required(),
     telefone: yup.string().nonNullable()
         .required()
         .matches(/^\(\d{3}\) \d{5}-\d{4}$/,
-        '${path} deve seguir o formato (DDD) XXXXX-XXXX'),
+            '${path} deve seguir o formato (DDD) XXXXX-XXXX'),
     areaAcademica: yup.string().required(),
     cargo: yup.string().nonNullable()
         .required()
@@ -54,7 +58,7 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
     linkCurriculo: yup.string().required().nonNullable()
         .url('Formato de URL inválido')
         .matches(/^(https?:\/\/(?:lattes\.cnpq\.br|orcid\.org)\/[\d-]+)$/i,
-        'A url deve ser do lattes ou do orcid'),
+            'A url deve ser do lattes ou do orcid'),
 
     atividadesDeInteresse: yup.array().of(
         yup.string().oneOf([
@@ -73,8 +77,7 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
             // Adicionar outras opções de revisor conforme necessário
         ])
     ),
-    data: yup.string(),
-    hora: yup.string(),
+    data_hora: yup.string(),
     aprovacao: yup.boolean().required(),
     ativo: yup.boolean().required(),
 });
@@ -87,28 +90,24 @@ export const createValidation = validation((getSchema) => ({
 export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
     if (await isEmailUnique(req.body.email)) {
         try {
+            // Remove o campo de confirmação de senha do objeto req.body
+            const { confirmacaoDeSenha, ...userDataWithoutConfirmation } = req.body;
 
             //criptografia
             const hashedPassword = await PasswordCrypto.hashPassword(req.body.senha);
 
             //data
-            const now = new Date();
-            const day = String(now.getDate()).padStart(2, '0'); // Obtém o dia com zero à esquerda se necessário
-            const month = String(now.getMonth() + 1).padStart(2, '0'); // Obtém o mês com zero à esquerda se necessário
-            const year = now.getFullYear(); // Obtém o ano no formato YYYY
-
-            const formattedDate = `${day}/${month}/${year}`;
+            const now = new Date().toISOString();
 
             const userData: Prisma.UsuarioCreateInput = {
-                ...req.body,
-                data: formattedDate, // Obtém a data no formato 'YYYY-MM-DD'
-                hora: now.toTimeString().split(' ')[0], // Obtém a hora no formato 'HH:MM:SS'
+                ...userDataWithoutConfirmation, // Usa o objeto sem o campo confirmacaoDeSenha
+                data_hora: now,
                 senha: hashedPassword,
             };
 
             await prisma.usuario.create({
                 data: userData,
-            })
+            });
             console.log(req.body);
             return res.status(200).json(userData);
         } catch (error) {

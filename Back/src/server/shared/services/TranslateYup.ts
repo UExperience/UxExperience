@@ -1,15 +1,15 @@
-import { setLocale } from "yup";
+import { setLocale } from 'yup';
 
 
 setLocale({
-    mixed:{
-    required: 'Este campo é obrigatório',
-    notType: 'Formato digitado é inválido',
-    defined: 'Este campo deve ter um valor definido',
-    oneOf: 'Deve ser um dos seguintes valores ${values}',
-    notOneOf: 'Não pode ser um dos seguintes valores ${values}',
+    mixed: {
+        required: 'Este campo é obrigatório',
+        notType: 'Formato digitado é inválido',
+        defined: 'Este campo deve ter um valor definido',
+        oneOf: 'Deve ser um dos seguintes valores ${values}',
+        notOneOf: 'Não pode ser um dos seguintes valores ${values}',
     },
-    string:{
+    string: {
         lowercase: 'Deve estar em maiúsculo',
         uppercase: 'Deve estar em minúsculo',
         url: 'Deve ter um formato de URL válido',
@@ -20,7 +20,7 @@ setLocale({
         uuid: 'Valor digitado não confere a um UUID válido',
         trim: 'Não deve conter espas no início ou no fim',
     },
-    number:{
+    number: {
         min: 'Deve ter no mínimo ${min}',
         max: 'Deve ter no máximo ${max}',
         integer: 'Deve ser um número inteiro',
@@ -42,4 +42,4 @@ setLocale({
         noUnknown: 'Deve ser algo definido'
     },
 
-})
+});

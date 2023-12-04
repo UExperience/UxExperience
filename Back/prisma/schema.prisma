@@ -26,8 +26,7 @@ model Usuario {
   ativo                Boolean
   cargo                String
   revisor              String[] @default([])
-  data                 String
-  hora                 String
+  data_hora                 String
   areaAcademica        String
   atividadesDeInteresse  String[] @default([])
           // Adicionado o relacionamento com a área acadêmica

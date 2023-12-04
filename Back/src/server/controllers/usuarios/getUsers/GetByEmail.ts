@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import * as yup from 'yup';
-import { validation } from "../../shared/middlewares/Validation";
+import { validation } from '../../../shared/middlewares/Validation';
 
 const prisma = new PrismaClient();
 
@@ -10,7 +11,7 @@ interface IParamsProps {
 }
 
 export const getByEmailValidation = validation((getSchema) => ({
-    params: getSchema< IParamsProps>(yup.object().shape({
+    params: getSchema<IParamsProps>(yup.object().shape({
         email: yup.string().required().email(),
     })),
 }));
@@ -30,8 +31,8 @@ export const getByEmail = async (req: Request<IParamsProps, {}, {}>, res: Respon
 
         return res.status(200).json(usuario);
     } catch (error) {
-        console.error("Error fetching user:", error);
-        throw new Error("Failed to fetch user");
+        console.error('Error fetching user:', error);
+        throw new Error('Failed to fetch user');
     }
 };
 

@@ -1,18 +1,16 @@
 
-import * as create from './create'
-import * as getAll from './GetAll'
-import * as SingIn from './SignIn'
-import * as getByName from './GetByName'
-import * as getById from './GetById'
-import * as getByEmail from './GetByEmail'
-import * as RecoveryKey from './ForgotPassWord'
+import * as create from './create';
+import * as getAll from './getUsers/GetAll';
+import * as SingIn from './SignIn';
+import * as getUsers from './GetUsers';
+import * as RecoveryKey from './recoveryKey/ForgotPassWord';
+import * as UpdateKey from './recoveryKey/UpdateKey';
 export const usuariosControler = {
     ...create,
     ...getAll,
     ...SingIn,
-    ...getByName,
-    ...getById,
-    ...getByEmail,
-    ...RecoveryKey
+    ...getUsers,
+    ...RecoveryKey,
+    ...UpdateKey,
 };
 
