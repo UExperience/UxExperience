@@ -24,7 +24,12 @@ const RevistasAcademicas = () => {
                 </div>
                 <div className="campo">
                     <label htmlFor="" title="">Tipo *</label>
-                    <select type="text" id="" placeholder="" required />
+                    <select type="text" id="" placeholder="" required >
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
+                    <option value="opcao4">Opção 4</option>
+                    </select>
                 </div>
             </div>
 
@@ -39,7 +44,12 @@ const RevistasAcademicas = () => {
                 </div>
                 <div className="campo">
                     <label htmlFor="" title="Exemplo: ">Área Acadêmica *</label>
-                    <select type="text" id="" placeholder="" required />
+                    <select type="text" id="" placeholder="" required >
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
+                    <option value="opcao4">Opção 4</option>
+                    </select>
                 </div>
             </div>
 

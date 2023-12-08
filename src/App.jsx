@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './pages/index/index.jsx';
 import User from './pages/dashboard/index/index.jsx';

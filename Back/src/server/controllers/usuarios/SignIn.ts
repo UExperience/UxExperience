@@ -46,7 +46,6 @@ export const singIn = async (req: Request<{}, {}, IBodyProps>, res: Response) =>
             if (acessToken === 'JWT_SECRET_NOT_FOUND') {
                 return res.status(500).json({ errors: { default: 'Erro ao gerar token de acesso' } });
             }
-
             return res.status(200).json({ acessToken: acessToken });
         }
     } catch (error) {
