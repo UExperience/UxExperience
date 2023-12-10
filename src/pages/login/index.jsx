@@ -45,7 +45,7 @@ const Login = () => {
     if (isLoggedIn) {
       setEmail('');
       setPassword('');
-      navigate('/'); // Use o hook useNavigate para redirecionar para a rota desejada
+      navigate('/'); 
     }
   }, [isLoggedIn, navigate]);
 
