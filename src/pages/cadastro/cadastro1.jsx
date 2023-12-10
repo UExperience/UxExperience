@@ -122,7 +122,7 @@ function Cadastro1() {
             name="Lattes"
             placeholder="Confirme sua senha..."
             required
-            value={formData.confirmacaoDeSenha}
+            value={formData .confirmacaoDeSenha}
             onChange={(e) => handleFormEdit(e, 'confirmacaoDeSenha')}
           />
           <FontAwesomeIcon id="icon-senha" className="icon-register" icon={faEyeSlash} />
