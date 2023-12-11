@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/style.css';
 import './css/responsive.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Home from './pages/index/index.jsx';
@@ -20,7 +15,7 @@ import ChangePassword from './pages/dashboard/securityandprivacy/changepassword.
 import Institution from './pages/dashboard/institution/index.jsx';
 import AddInstitution from './pages/dashboard/institution/addinstitution.jsx';
 import AreaofInterest from './pages/dashboard/area​interest/index.jsx';
-import AddInterest from './pages/dashboard/area​interest/addareainterest.jsx'
+import AddInterest from './pages/dashboard/area​interest/addareainterest.jsx';
 import AcademicArea from './pages/dashboard/academicarea/index.jsx';
 import AddAcademic from './pages/dashboard/academicarea/addacademic.jsx';
 import TypeofCourse from './pages/dashboard/typeofcourse/index.jsx';
@@ -43,147 +38,49 @@ import AgendUser from './pages/agenduser/index.jsx';
 import NewCurso from './pages/cursos/newcursos.jsx';
 import ListCurso from './pages/cursos/listcursos.jsx';
 
-import reportWebVitals from './reportWebVitals';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/cadastro2',
-    element: <Cadastro2 />,
-  },
-  {
-    path: '/cadastro1',
-    element: <Cadastro1 />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/user',
-    element: <User />,
-  },
-  {
-    path: '/securityandprivacy',
-    element: <SecurityandPrivacy />,
-  },
-  {
-    path: '/changepassword',
-    element: <ChangePassword />,
-  },
-  {
-    path: '/institution',
-    element: <Institution />,
-  },
-  {
-    path: '/addinstitution',
-    element: <AddInstitution />,
-  },
-  {
-    path: '/areaofinterest',
-    element: <AreaofInterest />,
-  },
-  {
-    path: '/addinterest',
-    element: <AddInterest />,
-  },
-  {
-    path: '/academicarea',
-    element: <AcademicArea />,
-  },
-  {
-    path: '/addacademic',
-    element: <AddAcademic />,
-  },
-  {
-    path: '/typeofcourse',
-    element: <TypeofCourse />,
-  },
-  {
-    path: '/addcourse',
-    element: <AddCourse />,
-  },
-  {
-    path: '/subtype',
-    element: <SubTypeofCourse />,
-  },
-  {
-    path: '/addsubtype',
-    element: <AddSubType />,
-  },
-  {
-    path: '/events',
-    element: <Events />,
-  },
-  {
-    path: '/addevents',
-    element: <AddEvents />,
-  },
-  {
-    path: '/typeevents',
-    element: <TypeEvents />,
-  },
-  {
-    path: '/addtypeevents',
-    element: <AddTypeEvents />,
-  },
-  {
-    path: '/agend',
-    element: <Agend />,
-  },
-  {
-    path: '/addagend',
-    element: <AddAgend />,
-  },
-  {
-    path: '/typeagend',
-    element: <TypeAgend />,
-  },
-  {
-    path: '/addtypeagend',
-    element: <AddTypeAgend />,
-  },
-  {
-    path: '/project',
-    element: <Project />,
-  },
-  {
-    path: '/addproject',
-    element: <AddProject />,
-  },
-  {
-    path: '/revistasacademicas',
-    element: <RevistasAcademicas />,
-  },
-  {
-    path: '/newrevistasacademicas',
-    element: <NewRevistasAcademicas />,
-  },
-  {
-    path: '/agenduser',
-    element: <AgendUser />,
-  },
-  {
-    path: '/NewCurso',
-    element: <NewCurso />,
-  },
-  {
-    path: '/listcurso',
-    element: <ListCurso />,
-  },
-]);
+const App = () => {
+  return (
+    <React.StrictMode>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cadastro2" element={<Cadastro2 />} />
+          <Route path="/cadastro1" element={<Cadastro1 />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/securityandprivacy" element={<SecurityandPrivacy />} />
+          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/institution" element={<Institution />} />
+          <Route path="/addinstitution" element={<AddInstitution />} />
+          <Route path="/areaofinterest" element={<AreaofInterest />} />
+          <Route path="/addinterest" element={<AddInterest />} />
+          <Route path="/academicarea" element={<AcademicArea />} />
+          <Route path="/addacademic" element={<AddAcademic />} />
+          <Route path="/typeofcourse" element={<TypeofCourse />} />
+          <Route path="/addcourse" element={<AddCourse />} />
+          <Route path="/subtype" element={<SubTypeofCourse />} />
+          <Route path="/addsubtype" element={<AddSubType />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/addevents" element={<AddEvents />} />
+          <Route path="/typeevents" element={<TypeEvents />} />
+          <Route path="/addtypeevents" element={<AddTypeEvents />} />
+          <Route path="/agend" element={<Agend />} />
+          <Route path="/addagend" element={<AddAgend />} />
+          <Route path="/typeagend" element={<TypeAgend />} />
+          <Route path="/addtypeagend" element={<AddTypeAgend />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/addproject" element={<AddProject />} />
+          <Route path="/revistasacademicas" element={<RevistasAcademicas />} />
+          <Route path="/newrevistasacademicas" element={<NewRevistasAcademicas />} />
+          <Route path="/agenduser" element={<AgendUser />} />
+          <Route path="/NewCurso" element={<NewCurso />} />
+          <Route path="/listcurso" element={<ListCurso />} />
+        </Routes>
+      </Router>
+    </React.StrictMode>
+  );
+};
 
 const root = document.getElementById('login');
 
-ReactDOM.createRoot(root).render(
-  <React.StrictMode>
-    <RouterProvider router={router}>
-      <Routes />
-    </RouterProvider>
-  </React.StrictMode>,
-);
-
-reportWebVitals();
+ReactDOM.createRoot(root).render(<App />);

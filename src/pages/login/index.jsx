@@ -82,9 +82,7 @@ const Login = () => {
             <button type="submit" className="btn-login">
               Login
             </button>
-            <Link>
               <p className="password-forget">Esqueceu sua senha?</p>
-            </Link>
             <Link to="/cadastro1">
               <p className="register-btn">Não tem uma conta? Cadastre-se</p>
             </Link>
