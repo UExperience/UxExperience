@@ -1,25 +1,53 @@
-import { getAll } from './getUsers/GetAll';
-import { getByEmail } from './getUsers/GetByEmail';
-import { getByName } from './getUsers/GetByName';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export const getUsers = async (req, res) => {
     try {
-        const { email, nome, sobrenome } = req.query;
+        const { q } = req.query;
+
+        const criteria = {};
+        const queryParams = q.toString().split(',');
+        queryParams.forEach((param) => {
+            const [key, value] = param.split('=');
+            criteria[key] = value;
+        });
 
         let result;
-
-        if (email) {
-            result = await getByEmail(req, res);
-        } else if (nome && sobrenome) {
-            result = await getByName(req, res);
+        if (Object.keys(criteria).length ===0) {
+            result = await getAll();
         } else {
-            result = await getAll(req, res);
-        }
+            result = await searchByCriteria(criteria);
 
-        // Aqui você pode manipular 'result' antes de enviar como resposta
-        res.status(200).json(result);
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ errors: { default: 'Nenhum usuário encontrado' } });
+            }
+        }
     } catch (error) {
         console.error(error);
-        res.status(500).send('Erro ao buscar usuários');
+        return res.status(404).json({ errors: { default: 'Erro ao buscar usuários' } });
     }
 };
+
+
+async function searchByCriteria(criteria) {
+    const result = await prisma.usuario.findMany({
+        where: {
+            AND: Object.entries(criteria).map(([key, value]) => ({ [key]: value })),
+        },
+        select: {
+            nome: true,
+            email: true,
+            instituicaoParceira: true,
+            //adicionar cnpj da instituição parceira no futuro
+        },
+    });
+
+    return result;
+}
+
+async function getAll() {
+    return await prisma.usuario.findMany();
+}
