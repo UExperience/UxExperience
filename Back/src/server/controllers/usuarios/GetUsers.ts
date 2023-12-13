@@ -1,21 +1,34 @@
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+import  searchByCriteria  from '../../Utils/GetbyCriteriaUser';
 
+const prisma = new PrismaClient();
 export const getUsers = async (req, res) => {
     try {
         const { q } = req.query;
 
+        const allowedFields = ['email', 'nome', 'instituicaoParceira','sobrenome']; // Campos permitidos
         const criteria = {};
-        const queryParams = q.toString().split(',');
+
+        const queryParams = q ? q.toString().split(',') : [];
+        let hasInvalidField = false;
+
         queryParams.forEach((param) => {
             const [key, value] = param.split('=');
-            criteria[key] = value;
+            if (allowedFields.includes(key)) {
+                criteria[key] = value;
+            } else {
+                hasInvalidField = true;
+            }
         });
 
+        if (hasInvalidField) {
+            return res.status(400).json({ errors: { default: 'Campos inválidos na busca' } });
+        }
+
         let result;
-        if (Object.keys(criteria).length ===0) {
-            result = await getAll();
+        if (Object.keys(criteria).length === 0 && queryParams.length > 0) {
+            result = await getAll(); // Se 'q' estiver vazio, mas o parâmetro 'q' está presente, busca todos os usuários
         } else {
             result = await searchByCriteria(criteria);
 
@@ -27,26 +40,11 @@ export const getUsers = async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        return res.status(404).json({ errors: { default: 'Erro ao buscar usuários' } });
+        return res.status(500).json({ errors: { default: 'Erro ao buscar usuários' } });
     }
 };
 
 
-async function searchByCriteria(criteria) {
-    const result = await prisma.usuario.findMany({
-        where: {
-            AND: Object.entries(criteria).map(([key, value]) => ({ [key]: value })),
-        },
-        select: {
-            nome: true,
-            email: true,
-            instituicaoParceira: true,
-            //adicionar cnpj da instituição parceira no futuro
-        },
-    });
-
-    return result;
-}
 
 async function getAll() {
     return await prisma.usuario.findMany();
