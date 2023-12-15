@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Wave from '../../components/Wave';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faEye,
   faEnvelope,
   faEyeSlash,
   faPhone,
@@ -10,12 +11,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 function Cadastro() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     nome: '',
     sobrenome: '',
     email: '',
     instituicaoParceira: '',
+    telefone: '',
     senha: '',
     confirmacaoDeSenha: '',
     perfilDeAcesso: '',
@@ -23,8 +27,8 @@ function Cadastro() {
     cargo: '',
     tipo: '',
     linkCurriculo: '',
-    revisor: [],
-    atividadesDeInteresse: [],
+    revisor: [''],
+    atividadesDeInteresse: [''],
     aprovacao: true,
     ativo: true,
   });
@@ -46,7 +50,7 @@ function Cadastro() {
       });
     }
   };
-  
+
   const handleCheckboxChange = (event) => {
     setFormData({
       ...formData,
@@ -60,6 +64,8 @@ function Cadastro() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+
 
     if (step === 1) {
       setStep(2);
@@ -163,7 +169,7 @@ function Cadastro() {
               </select>
 
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 className="opcao5"
                 name="senha"
                 placeholder="Insira sua senha..."
@@ -171,10 +177,15 @@ function Cadastro() {
                 value={formData.senha}
                 onChange={(e) => handleFormEdit(e, 'senha')}
               />
-              <FontAwesomeIcon id="icon-senha" className="icon-register" icon={faEyeSlash} />
+              <FontAwesomeIcon
+                id="icon-senha"
+                className="icon-register"
+                icon={showPassword ? faEye : faEyeSlash}
+                onClick={() => setShowPassword(!showPassword)}
+              />
 
               <input
-                type="password"
+                type={showConfirmPassword ? 'text' : 'password'}
                 className="opcao5"
                 name="confirmacaoDeSenha"
                 placeholder="Confirme sua senha..."
@@ -182,7 +193,12 @@ function Cadastro() {
                 value={formData.confirmacaoDeSenha}
                 onChange={(e) => handleFormEdit(e, 'confirmacaoDeSenha')}
               />
-              <FontAwesomeIcon id="icon-senha" className="icon-register" icon={faEyeSlash} />
+              <FontAwesomeIcon
+                id="icon-senha"
+                className="icon-register"
+                icon={showConfirmPassword ? faEye : faEyeSlash}
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              />
 
               <button type="button" onClick={handleNext} className="next-form">
                 Próximo
@@ -271,13 +287,13 @@ function Cadastro() {
                 value={formData.revisor}
                 onChange={(e) => handleFormEdit(e, 'revisor')}
               >
-                <option value="" selected disabled>Revisor (Opcional)</option>
+                <option value={null} disabled>Revisor (Opcional)</option>
+                <option value={null}>Nenhum</option>
                 <option value="Revisor de revistas acadêmicas">Revisor de revistas acadêmicas</option>
                 <option value="Coordenador de mesa em eventos">Coordenador de mesa em eventos</option>
                 <option value="Avaliador de artigos científicos em eventos">Avaliador de artigos científicos em eventos</option>
                 <option value="Palestrante em eventos técnico-científicos">Palestrante em eventos técnico-científicos</option>
               </select>
-
 
               <select
                 id="opcao7"
@@ -285,7 +301,8 @@ function Cadastro() {
                 value={formData.atividadesDeInteresse}
                 onChange={(e) => handleFormEdit(e, 'atividadesDeInteresse')}
               >
-                <option value="" selected disabled>Atividades de Interesse (Opcional)</option>
+                <option value={null} disabled>Atividades de Interesse (Opcional)</option>
+                <option value={null}>Nenhum</option>
                 <option value="Atividade 1">Opção 1</option>
                 <option value="Atividade 2">Opção 2</option>
                 <option value="Atividade 3">Opção 3</option>
