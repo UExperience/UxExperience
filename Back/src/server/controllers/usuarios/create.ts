@@ -59,13 +59,8 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
         .matches(/^(https?:\/\/(?:lattes\.cnpq\.br|orcid\.org)\/[\d-]+)$/i,
             'A url deve ser do lattes ou do orcid'),
 
-    atividadesDeInteresse: yup.array().of(
-        yup.string(),
-    ),
-    revisor: yup.array().of(
-        yup.string()
-
-    ),
+    atividadesDeInteresse: yup.string().required(),
+    revisor: yup.string().required(),  
     data_hora: yup.string(),
     aprovacao: yup.boolean(),
     ativo: yup.boolean(),
