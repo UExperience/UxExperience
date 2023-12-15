@@ -78,8 +78,8 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
         ])
     ),
     data_hora: yup.string(),
-    aprovacao: yup.boolean().required(),
-    ativo: yup.boolean().required(),
+    aprovacao: yup.boolean(),
+    ativo: yup.boolean(),
 });
 
 
@@ -103,6 +103,8 @@ export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
                 ...userDataWithoutConfirmation, // Usa o objeto sem o campo confirmacaoDeSenha
                 data_hora: now,
                 senha: hashedPassword,
+                aprovacao: false,
+                ativo: false,
             };
 
             await prisma.usuario.create({
