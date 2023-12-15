@@ -1,25 +1,51 @@
-import { getAll } from './getUsers/GetAll';
-import { getByEmail } from './getUsers/GetByEmail';
-import { getByName } from './getUsers/GetByName';
+import { PrismaClient } from '@prisma/client';
 
+import  searchByCriteria  from '../../Utils/GetbyCriteriaUser';
+
+const prisma = new PrismaClient();
 export const getUsers = async (req, res) => {
     try {
-        const { email, nome, sobrenome } = req.query;
+        const { q } = req.query;
 
-        let result;
+        const allowedFields = ['email', 'nome', 'instituicaoParceira','sobrenome']; // Campos permitidos
+        const criteria = {};
 
-        if (email) {
-            result = await getByEmail(req, res);
-        } else if (nome && sobrenome) {
-            result = await getByName(req, res);
-        } else {
-            result = await getAll(req, res);
+        const queryParams = q ? q.toString().split(',') : [];
+        let hasInvalidField = false;
+
+        queryParams.forEach((param) => {
+            const [key, value] = param.split('=');
+            if (allowedFields.includes(key)) {
+                criteria[key] = value;
+            } else {
+                hasInvalidField = true;
+            }
+        });
+
+        if (hasInvalidField) {
+            return res.status(400).json({ errors: { default: 'Campos inválidos na busca' } });
         }
 
-        // Aqui você pode manipular 'result' antes de enviar como resposta
-        res.status(200).json(result);
+        let result;
+        if (Object.keys(criteria).length === 0 && queryParams.length > 0) {
+            result = await getAll(); // Se 'q' estiver vazio, mas o parâmetro 'q' está presente, busca todos os usuários
+        } else {
+            result = await searchByCriteria(criteria);
+
+            if (result.length > 0) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({ errors: { default: 'Nenhum usuário encontrado' } });
+            }
+        }
     } catch (error) {
         console.error(error);
-        res.status(500).send('Erro ao buscar usuários');
+        return res.status(500).json({ errors: { default: 'Erro ao buscar usuários' } });
     }
 };
+
+
+
+async function getAll() {
+    return await prisma.usuario.findMany();
+}

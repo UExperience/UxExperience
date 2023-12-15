@@ -10,42 +10,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Usuario {
-  id                   Int       @id @default(autoincrement())
+  id                   Int             @id @default(autoincrement())
   nome                 String
   sobrenome            String
-  email                String    @unique
+  email                String          @unique
   senha                String
-  instituicaoParceira  String    // Corrigido o nome do campo
-  telefone             String    // Adicionado o campo de telefone
-  perfilDeAcesso        String    // Adicionado o campo de perfil de acesso
-  tipo                 String    // Adicionado o campo de tipo
-  linkCurriculo        String    // Adicionado o campo de linkCurriculo
-  aprovacao            Boolean   // Adicionado o campo de aprovacao
+  instituicaoParceira  String
+  telefone             String
+  perfilDeAcesso       String
+  tipo                 String
+  linkCurriculo        String
+  aprovacao            Boolean
   ativo                Boolean
   cargo                String
-  revisor              String[] @default([])
-  data_hora                 String
-  areaAcademica        String
-  atividadesDeInteresse  String[] @default([])
-          // Adicionado o relacionamento com a área acadêmica
-            // Adicionado o relacionamento com a área de interesse
+  revisor              String[]        @default([])
+  data_hora            String
+  areasAcademicas      AreaAcademica[] // Relacionamento many-to-many com áreas acadêmicas
+  areasDeInteresse     AreaInteresse[] // Relacionamento many-to-many com áreas de interesse
+  papeis Papel[]
+}
+//
+model Papel {
+  id        Int       @id @default(autoincrement())
+  nome      String    @unique
+  descricao String
+  usuarios  Usuario[]
 }
 
 model AreaAcademica {
   id         Int       @id @default(autoincrement())
   descricao  String
   ativo      Boolean
-
+  usuarios   Usuario[] // Relacionamento many-to-many com usuários
 }
 
 model AreaInteresse {
   id         Int       @id @default(autoincrement())
   descricao  String
   ativo      Boolean
-
+  usuarios   Usuario[] // Relacionamento many-to-many com usuários
 }
-
 
 

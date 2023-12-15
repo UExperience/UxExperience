@@ -12,6 +12,6 @@ router.post('/cadastrar',usuariosControler.createValidation,usuariosControler.cr
 router.post('/entrar',usuariosControler.singInValidation,usuariosControler.singIn);
 
 
-router.get('/users', ensureAuthenticated, usuariosControler.getAllValidation, usuariosControler.getAll);
+router.get('/users', ensureAuthenticated, usuariosControler.getUsers);
 
 export  {router};
