@@ -61,21 +61,10 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
             'A url deve ser do lattes ou do orcid'),
 
     atividadesDeInteresse: yup.array().of(
-        yup.string().oneOf([
-            'Atividade 1',
-            'Atividade 2',
-            'Atividade 3',
-            // Adicionar outras atividades conforme necessário
-        ])
+        yup.string()
     ),
     revisor: yup.array().of(
-        yup.string().oneOf([
-            'Revisor de revistas acadêmicas',
-            'Coordenador de mesa em eventos',
-            'Avaliador de artigos científicos em eventos',
-            'Palestrante em eventos técnico-científicos',
-            // Adicionar outras opções de revisor conforme necessário
-        ])
+        yup.string()
     ),
     data_hora: yup.string(),
     aprovacao: yup.boolean(),
