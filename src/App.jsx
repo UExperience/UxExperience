@@ -8,7 +8,6 @@ import axios from 'axios';
 import Home from './pages/index/index.jsx';
 import User from './pages/dashboard/index/index.jsx';
 import Login from './pages/login/index.jsx';
-import Cadastro2 from './pages/cadastro/cadastro2.jsx';
 import Cadastro1 from './pages/cadastro/cadastro1.jsx';
 import SecurityandPrivacy from './pages/dashboard/securityandprivacy/index.jsx';
 import ChangePassword from './pages/dashboard/securityandprivacy/changepassword.jsx';
@@ -44,7 +43,6 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cadastro2" element={<Cadastro2 />} />
           <Route path="/cadastro1" element={<Cadastro1 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<User />} />
