@@ -4,7 +4,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { Request, RequestHandler, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middlewares/Validation';
-import isEmailUnique from '../../shared/services/isEmailUnique';
+import isEmailUnique from '../../Utils/isEmailUnique';
 import { PasswordCrypto } from '../../shared/services';
 const prisma = new PrismaClient();
 
@@ -60,21 +60,11 @@ const bodyValidation: yup.ObjectSchema<IUsuario> = yup.object().shape({
             'A url deve ser do lattes ou do orcid'),
 
     atividadesDeInteresse: yup.array().of(
-        yup.string().oneOf([
-            'Atividade 1',
-            'Atividade 2',
-            'Atividade 3',
-            // Adicionar outras atividades conforme necessário
-        ])
+        yup.string(),
     ),
     revisor: yup.array().of(
-        yup.string().oneOf([
-            'Revisor de revistas acadêmicas',
-            'Coordenador de mesa em eventos',
-            'Avaliador de artigos científicos em eventos',
-            'Palestrante em eventos técnico-científicos',
-            // Adicionar outras opções de revisor conforme necessário
-        ])
+        yup.string()
+
     ),
     data_hora: yup.string(),
     aprovacao: yup.boolean(),
@@ -101,6 +91,8 @@ export const create = async (req: Request<{}, {}, IUsuario>, res: Response) => {
         ...userDataWithoutConfirmation, // Usa o objeto sem o campo confirmacaoDeSenha
         data_hora: now,
         senha: hashedPassword,
+        aprovacao: false,
+        ativo: false,
       };
 
       await prisma.usuario.create({
