@@ -2,16 +2,16 @@ import { Router } from 'express';
 import { usuariosControler } from '../controllers';
 import { ensureAuthenticated, recoveryAuthenticated } from '../shared/middlewares';
 
-const router = Router();
+const routerUser = Router();
 
-router.post('/esqueceu',usuariosControler.forgotPassWordValidation,usuariosControler.forgotPassWord);
-router.put('/esqueceu', recoveryAuthenticated,usuariosControler.putKeyValidation,usuariosControler.putKey);
-
-
-router.post('/cadastrar',usuariosControler.createValidation,usuariosControler.create);
-router.post('/entrar',usuariosControler.singInValidation,usuariosControler.singIn);
+routerUser.post('/esqueceu',usuariosControler.forgotPassWordValidation,usuariosControler.forgotPassWord);
+routerUser.put('/esqueceu', recoveryAuthenticated,usuariosControler.putKeyValidation,usuariosControler.putKey);
 
 
-router.get('/users', ensureAuthenticated, usuariosControler.getUsersValidation,usuariosControler.getUsers);
+routerUser.post('/cadastrar',usuariosControler.createValidation,usuariosControler.create);
+routerUser.post('/entrar',usuariosControler.singInValidation,usuariosControler.singIn);
 
-export  {router};
+
+routerUser.get('/users', ensureAuthenticated, usuariosControler.getUsersValidation,usuariosControler.getUsers);
+
+export  {routerUser};

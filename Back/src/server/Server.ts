@@ -1,6 +1,7 @@
 import express from 'express';
 import './shared/services/TranslateYup';
-import { router } from './routes/usuariosRoutes'
+import { routerUser } from './routes/usuariosRoutes'
+import { routerAreaAcademica } from './routes/areaAcademicaRoutes'
 
 const server = express();
 server.use(express.json());
@@ -9,6 +10,6 @@ const app = server;
 
 app.use(cors());
 
-server.use(router);
+server.use(routerUser,routerAreaAcademica );
 
 export { server };
