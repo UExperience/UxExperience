@@ -4,8 +4,6 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { Request, RequestHandler, Response } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middlewares/Validation';
-import isEmailUnique from '../../Utils/isEmailUnique';
-import { PasswordCrypto } from '../../shared/services';
 const prisma = new PrismaClient();
 
 interface IAreaAcademica {

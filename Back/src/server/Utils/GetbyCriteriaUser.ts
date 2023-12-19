@@ -18,8 +18,8 @@ async function searchByCriteria(criteria, skip, take) {
                 instituicaoParceira: true,
                 // adicionar cnpj da instituição parceira no futuro
             },
-            skip,
-            take,
+            take: Number(take),
+            skip: (Number(skip) - 1) * Number(take),
         }),
         prisma.usuario.count({
             where: {
